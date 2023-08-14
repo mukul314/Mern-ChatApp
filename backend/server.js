@@ -17,10 +17,14 @@ app.use(express.json()); // to accept json data
 
 // Enable CORS for requests from http://localhost:5173
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://talk-app.onrender.com",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 };
 app.use(cors(corsOptions));
+
+//http://localhost:5173
+
+//https://talk-app.onrender.com
 
 // app.get("/", (req, res) => {
 //   res.send("Api is running");
@@ -47,6 +51,8 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is running..");
   });
 }
+
+
 
 //=========DEPLOYMENT============
 
