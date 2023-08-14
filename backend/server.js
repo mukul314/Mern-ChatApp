@@ -1,18 +1,19 @@
 const express = require("express");
 const chats = require("./data/data");
-const dotenv = require('dotenv')
-const cors = require('cors');
-const connectDB = require('./config/db')
-const userRoutes = require('./routes/userRoutes');
-const chatRoutes = require('./routes/chatRoutes');
+const dotenv = require("dotenv");
+const cors = require("cors");
+const connectDB = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 
 const path = require("path");
 
-const app = express();
 dotenv.config();
 connectDB();
+const app = express();
+app.use(express.json()); // to accept json data
 
 // Enable CORS for requests from http://localhost:5173
 const corsOptions = {
@@ -20,43 +21,37 @@ const corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 };
 app.use(cors(corsOptions));
-app.use(express.json());  // to accept json data
-
 
 // app.get("/", (req, res) => {
 //   res.send("Api is running");
 // });
-
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
 // Error Handling middlewares
+
+//=========DEPLOYMENT============
+
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/frontend/dist")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "frontend", "dist", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+//=========DEPLOYMENT============
+
 app.use(notFound);
 app.use(errorHandler);
-
-
-//=========DEPLOYMENT============
-
-// const __dirname1 = path.resolve();
-
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname1, 'dist')));
-
-//   app.get('*', (req, res) =>
-//     res.sendFile(path.resolve(__dirname1, 'dist', 'index.html'))
-//   );
-// } else {
-//   app.get('/', (req, res) => {
-//     res.send('API is running..');
-//   });
-// }
-
-
-//=========DEPLOYMENT============
-
-
 
 const PORT = process.env.PORT || 5002;
 
