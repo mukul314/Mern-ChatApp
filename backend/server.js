@@ -23,9 +23,9 @@ app.use(cors(corsOptions));
 app.use(express.json());  // to accept json data
 
 
-app.get("/", (req, res) => {
-  res.send("Api is running");
-});
+// app.get("/", (req, res) => {
+//   res.send("Api is running");
+// });
 
 
 app.use("/api/user", userRoutes);
