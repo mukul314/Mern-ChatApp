@@ -16,10 +16,22 @@ const app = express();
 app.use(express.json()); // to accept json data
 
 // Enable CORS for requests from http://localhost:5173
+const allowedOrigins = [
+  'https://talk-app.onrender.com'   // Your deployed frontend URL
+];
+
 const corsOptions = {
-  origin: "https://talk-app.onrender.com",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,POST',
+  allowedHeaders: 'Content-Type,Authorization',
 };
+
 app.use(cors(corsOptions));
 
 //http://localhost:5173
