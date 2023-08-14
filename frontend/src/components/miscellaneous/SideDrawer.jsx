@@ -77,7 +77,10 @@ function SideDrawer() {
         },
       };
 
-      const { data } = await axios.get(`http://localhost:5001/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `http://localhost:5001/api/user?search=${search}`,
+        config
+      );
 
       setLoading(false);
       setSearchResult(data);
@@ -104,7 +107,11 @@ function SideDrawer() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`http://localhost:5001/api/chat`, { userId }, config);
+      const { data } = await axios.post(
+        `http://localhost:5001/api/chat`,
+        { userId },
+        config
+      );
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);
@@ -169,8 +176,8 @@ function SideDrawer() {
                   >
                     {/* ... */}
                     {notif.chat.isGroupChat
-                    ? `New Message in ${notif.chat.chatName}`
-                    : `New Message from ${getSender(user, notif.chat.users)}`}
+                      ? `New Message in ${notif.chat.chatName}`
+                      : `New Message from ${getSender(user, notif.chat.users)}`}
                   </MenuItem>
                 ))}
               </MenuList>
@@ -211,6 +218,12 @@ function SideDrawer() {
                 mr={2}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault(); // Prevent the default behavior of Enter key
+                    handleSearch(); // Call the search function when Enter is pressed
+                  }
+                }}
               />
               <Button onClick={() => handleSearch()}>Go</Button>
             </Box>

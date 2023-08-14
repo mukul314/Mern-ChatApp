@@ -4,8 +4,7 @@
   "description": "A Chat app using Mern",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server.js",
-    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend"
+    "start": "nodemon backend/server.js"
   },
   "author": "MUKUL OJHA",
   "license": "ISC",
