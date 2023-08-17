@@ -41,7 +41,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "https://talk-app.onrender.com/api/user/login", // Updated API URL
+        "http://talk-app.onrender.com/api/user/login", // Updated API URL
         { email, password },
         config
       );

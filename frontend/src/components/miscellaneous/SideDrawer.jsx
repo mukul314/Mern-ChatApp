@@ -79,7 +79,7 @@ function SideDrawer() {
 
       const { data } = await axios.get(
         // `http://localhost:5001/api/user?search=${search}`
-        `https://talk-app.onrender.com/api/user?search=${search}`,
+        `http://talk-app.onrender.com/api/user?search=${search}`,
         config
       );
 
@@ -109,7 +109,7 @@ function SideDrawer() {
         },
       };
       const { data } = await axios.post(
-        `https://talk-app.onrender.com/api/chat`,
+        `http://talk-app.onrender.com/api/chat`,
         { userId },
         config
       );

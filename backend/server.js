@@ -17,7 +17,7 @@ app.use(express.json()); // to accept json data
 
 // Enable CORS for requests from http://localhost:5173
 const allowedOrigins = [
-  'https://talk-app.onrender.com'   // Your deployed frontend URL
+  'http://talk-app.onrender.com'   // Your deployed frontend URL
 ];
 
 // OLD

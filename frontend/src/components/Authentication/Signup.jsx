@@ -51,10 +51,10 @@ const Signup = () => {
         },
       };
 
-      //https://talk-app.onrender.com/api/user/login
+      //http://talk-app.onrender.com/api/user/login
       const { data } = await axios.post(
         // "http://localhost:5001/api/user",
-        "https://talk-app.onrender.com/api/user",
+        "http://talk-app.onrender.com/api/user",
         {
           name,
           email,
@@ -105,7 +105,7 @@ const Signup = () => {
       data.append("file", pics);
       data.append("upload_preset", "chat-app");
       data.append("cloud_name", "piyushproj");
-      fetch("https://api.cloudinary.com/v1_1/piyushproj/image/upload", {
+      fetch("http://api.cloudinary.com/v1_1/piyushproj/image/upload", {
         method: "post",
         body: data,
       })
