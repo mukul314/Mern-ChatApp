@@ -53,7 +53,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `http://localhost:5001/api/message/${selectedChat._id}`,
+        // `http://localhost:5001/api/message/${selectedChat._id}`,
+        `http://talk-app.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -84,7 +85,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:5001/api/message",
+          // "http://localhost:5001/api/message",
+          "http://talk-app.onrender.com/api/message",
           {
             content: newMessage,
             chatId: selectedChat,

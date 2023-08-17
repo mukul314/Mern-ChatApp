@@ -109,7 +109,7 @@ function SideDrawer() {
         },
       };
       const { data } = await axios.post(
-        `http://localhost:5001/api/chat`,
+        `https://talk-app.onrender.com/api/chat`,
         { userId },
         config
       );

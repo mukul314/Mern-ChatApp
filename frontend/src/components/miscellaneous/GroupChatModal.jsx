@@ -100,7 +100,8 @@ import {
           },
         };
         const { data } = await axios.post(
-          `http://localhost:5001/api/chat/group`, // 
+          // `http://localhost:5001/api/chat/group`, 
+          `https://talk-app.onrender.com/api/chat/group`,
           {
             name: groupChatName,
             users: JSON.stringify(selectedUsers.map((u) => u._id)),

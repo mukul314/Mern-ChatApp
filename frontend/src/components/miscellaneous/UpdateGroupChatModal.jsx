@@ -77,7 +77,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5001/api/chat/rename`,
+        `https://talk-app.onrender.com/api/chat/rename`,
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -135,7 +135,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5001/api/chat/groupadd`,
+        `https://talk-app.onrender.com/api/chat/groupadd`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -180,7 +180,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5001/api/chat/groupremove`,
+        `https://talk-app.onrender.com/api/chat/groupremove`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
