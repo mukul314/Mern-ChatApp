@@ -17,7 +17,7 @@ import PropTypes from "prop-types";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "http://talk-app.onrender.com"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "https://talk-app.onrender.com"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -54,7 +54,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
       const { data } = await axios.get(
         // `http://localhost:5001/api/message/${selectedChat._id}`,
-        `http://talk-app.onrender.com/api/message/${selectedChat._id}`,
+        `https://talk-app.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -86,7 +86,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         setNewMessage("");
         const { data } = await axios.post(
           // "http://localhost:5001/api/message",
-          "http://talk-app.onrender.com/api/message",
+          "https://talk-app.onrender.com/api/message",
           {
             content: newMessage,
             chatId: selectedChat,

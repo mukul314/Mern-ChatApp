@@ -61,7 +61,7 @@ import {
         };
 
         //http://talk-app.onrender.com/
-        const { data } = await axios.get(`http://talk-app.onrender.com/api/user?search=${search}`, config);
+        const { data } = await axios.get(`https://talk-app.onrender.com/api/user?search=${search}`, config);
 
         console.log(data);
         setLoading(false);
@@ -103,7 +103,7 @@ import {
         };
         const { data } = await axios.post(
           // `http://localhost:5001/api/chat/group`, 
-          `http://talk-app.onrender.com/api/chat/group`,
+          `https://talk-app.onrender.com/api/chat/group`,
           {
             name: groupChatName,
             users: JSON.stringify(selectedUsers.map((u) => u._id)),
