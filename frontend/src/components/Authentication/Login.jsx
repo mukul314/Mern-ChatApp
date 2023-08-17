@@ -41,10 +41,18 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5001/api/user/login",
+        "https://talk-app.onrender.com/api/user/login", // Updated API URL
         { email, password },
         config
       );
+      
+
+   ///////////////// OLD /////////////////
+      // const { data } = await axios.post(
+      //   "http://localhost:5001/api/user/login",
+      //   { email, password },
+      //   config
+      // );
 
       toast({
         title: "Login Successful",

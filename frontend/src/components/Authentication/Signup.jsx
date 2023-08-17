@@ -50,8 +50,11 @@ const Signup = () => {
           "Content-type": "application/json",
         },
       };
+
+      //https://talk-app.onrender.com/api/user/login
       const { data } = await axios.post(
-        "http://localhost:5001/api/user",
+        // "http://localhost:5001/api/user",
+        "https://talk-app.onrender.com/api/user",
         {
           name,
           email,

@@ -20,6 +20,12 @@ const allowedOrigins = [
   'https://talk-app.onrender.com'   // Your deployed frontend URL
 ];
 
+// OLD
+
+// const allowedOrigins = [
+//   'http://localhost:5173'   // Your deployed frontend URL
+// ];
+
 const corsOptions = {
   origin: function (origin, callback) {
     if (allowedOrigins.includes(origin) || !origin) {
@@ -28,11 +34,17 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: 'GET,POST',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
 };
 
 app.use(cors(corsOptions));
+
+// const corsOptions = {
+//   origin: "https://talk-app.onrender.com",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+// };
+// app.use(cors(corsOptions));
 
 //http://localhost:5173
 

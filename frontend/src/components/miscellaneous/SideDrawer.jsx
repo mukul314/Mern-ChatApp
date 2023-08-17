@@ -78,7 +78,8 @@ function SideDrawer() {
       };
 
       const { data } = await axios.get(
-        `http://localhost:5001/api/user?search=${search}`,
+        // `http://localhost:5001/api/user?search=${search}`
+        `https://talk-app.onrender.com/api/user?search=${search}`,
         config
       );
 
